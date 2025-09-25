@@ -33,4 +33,4 @@ c2.count_up()
 
 print(c1,c2)
 print(c1+c2) # antes de crear la funcion __add__ me da error al hacer +. Puedo hacer un metodo para esto
-print(c1+"asfd")
+#print(c1+"asfd")
