@@ -36,3 +36,22 @@ class Solution:
                 return k 
 
 # binary search upgrade
+import math
+class Solution:
+    def minEatingSpeed(self,piles, h):
+        max_k, n = max(piles), len(piles)
+        l, r = 1, max_k
+        min_valid_k = r
+        while l<=r:
+            k = (l+r) // 2
+            hours_taken = 0
+            for j in range(n):
+                hours_taken += math.ceil(piles[j]/k)
+
+            if hours_taken <= h: 
+                r = k-1
+                min_valid_k = k
+            elif hours_taken > h:
+                l = k+1
+            
+        return min_valid_k
