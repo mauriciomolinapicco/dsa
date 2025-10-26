@@ -8,19 +8,18 @@ Actually diameter means max length betw 2 nodes
 #         self.left = left
 #         self.right = right
 class Solution:
-    max_dis = 0
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
-        
-        def max_depth(root):
-            if root == None: return 0
-            return max(max_depth(root.left), max_depth(root.right)) + 1
-        
-        def dfs(root):
-            if root == None: return
-            current_dis = max_depth(root.left) + max_depth(root.right)
-            if current_dis > self.max_dis: self.max_dis = current_dis
-            dfs(root.left)
-            dfs(root.right)
+        self.max_dis = 0
 
-        dfs(root)
+        def depth(node):
+            if not node:
+                return 0
+            left = depth(node.left)
+            right = depth(node.right)
+            # actualizar diámetro global
+            self.max_dis = max(self.max_dis, left + right)
+            # devolver la altura de este nodo
+            return 1 + max(left, right)
+
+        depth(root)
         return self.max_dis
