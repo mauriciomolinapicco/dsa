@@ -4,6 +4,7 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
 from collections import deque
 class Solution(object):
     def is_same_tree(self, root,subRoot): #dfs
