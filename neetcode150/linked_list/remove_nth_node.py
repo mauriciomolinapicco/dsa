@@ -1,3 +1,6 @@
+from typing import Optional
+
+
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         f = head
@@ -22,3 +25,28 @@ class Solution:
             c += 1
 
         return f
+
+
+# version con una pasada usando dos punteros
+class Solution:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        r = head
+        h1, h2 = head, None
+        c = 0
+
+        while True:
+            h1 = h1.next
+            if c >= n:
+                if not h2:
+                    h2 = head
+                else:
+                    h2 = h2.next
+            if not h1:
+                if not h2:
+                    return head.next
+                if h2.next:
+                    h2.next = h2.next.next
+                break
+            c += 1
+
+        return r
