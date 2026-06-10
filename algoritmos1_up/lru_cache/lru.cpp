@@ -10,7 +10,7 @@ private:
     int val;
     Node* prev;
     Node* next;
-    Node(int k, int v) : key(k), val(v), prev(nullptr), next(nullptr) {}
+    Node(int k, int v) : key(k), val(v), prev(nullptr), next(nullptr) {} //constructor
    };
 
    int cap; //capacity
@@ -75,7 +75,7 @@ public:
             existingNode->val = valor; 
             remove(existingNode);  //lo saco de la posicion actual    
             insert(existingNode);  // lo muevo a la derecha y queda como MRU
-            return;                    
+            return;
         }
       
       // caso 2 = la clave no existe
@@ -90,7 +90,6 @@ public:
           hm.erase(lru->key);  //borro la clave del hashmap
           delete lru; // liberar memoria del nodo eliminado
       }
-
     }
 };
 
